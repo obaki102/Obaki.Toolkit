@@ -810,8 +810,6 @@ C:\Users\joshu\source\repos\Obaki.Toolkit\src\Client\obj\Debug\net6.0\build-gz\x
 C:\Users\joshu\source\repos\Obaki.Toolkit\src\Client\obj\Debug\net6.0\build-gz\vuVaE8Gf.gz
 C:\Users\joshu\source\repos\Obaki.Toolkit\src\Client\obj\Debug\net6.0\build-gz\Uj4pqhyR.gz
 C:\Users\joshu\source\repos\Obaki.Toolkit\src\Client\obj\Debug\net6.0\build-gz\oQo+aCu6.gz
-C:\Users\joshu\source\repos\Obaki.Toolkit\src\Client\obj\Debug\net6.0\build-gz\Xq4q8TvU.gz
-C:\Users\joshu\source\repos\Obaki.Toolkit\src\Client\obj\Debug\net6.0\build-gz\Uz2yUWhX.gz
 C:\Users\joshu\source\repos\Obaki.Toolkit\src\Client\obj\Debug\net6.0\build-gz\t++GHsmC.gz
 C:\Users\joshu\source\repos\Obaki.Toolkit\src\Client\obj\Debug\net6.0\blazor.boot.json
 C:\Users\joshu\source\repos\Obaki.Toolkit\src\Client\obj\Debug\net6.0\staticwebassets\msbuild.Obaki.Toolkit.Client.Microsoft.AspNetCore.StaticWebAssets.props
@@ -827,3 +825,5 @@ C:\Users\joshu\source\repos\Obaki.Toolkit\src\Client\obj\Debug\net6.0\Obaki.Tool
 C:\Users\joshu\source\repos\Obaki.Toolkit\src\Client\obj\Debug\net6.0\refint\Obaki.Toolkit.Client.dll
 C:\Users\joshu\source\repos\Obaki.Toolkit\src\Client\obj\Debug\net6.0\Obaki.Toolkit.Client.pdb
 C:\Users\joshu\source\repos\Obaki.Toolkit\src\Client\obj\Debug\net6.0\ref\Obaki.Toolkit.Client.dll
+C:\Users\joshu\source\repos\Obaki.Toolkit\src\client\obj\Debug\net6.0\build-gz\+I315Qop.gz
+C:\Users\joshu\source\repos\Obaki.Toolkit\src\client\obj\Debug\net6.0\build-gz\17ko4od5.gz

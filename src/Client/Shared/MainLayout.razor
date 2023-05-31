@@ -1,22 +1,29 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider  @bind-IsDarkMode="_isDarkMode" Theme="_theme"/>
+<MudThemeProvider @bind-IsDarkMode="_isDarkMode" Theme="_theme" />
 <MudDialogProvider />
 <MudSnackbarProvider />
 
 <MudLayout>
     <MudAppBar Elevation="0">
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start"
+            OnClick="@((e) => DrawerToggle())" />
         <MudSpacer />
-        <MudIconButton Icon="@Icons.Custom.Brands.MudBlazor" Color="Color.Inherit" Link="https://mudblazor.com/" Target="_blank" />
-        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" Link="https://github.com/MudBlazor/MudBlazor/" Target="_blank" />
+        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit"
+            Link="https://github.com/obaki102/Obaki.Toolkit" Target="_blank" />
     </MudAppBar>
-    <MudDrawer @bind-Open="_drawerOpen" Elevation="1">
-        <MudDrawerHeader>
-            <MudText Typo="Typo.h6">Obaki.Toolkit.Client</MudText>
-        </MudDrawerHeader>
-        <NavMenu />
+
+    <MudDrawer @bind-Open="@_drawerOpen" ClipMode="DrawerClipMode.Never" Elevation="10" Variant="@DrawerVariant.Mini">
+        <div class="mud-navmenu mud-navmenu mud-navmenu-margin-none">
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Code" class="my-6"
+                IconColor="Color.Tertiary"><MudText Typo="Typo.h1" Color="Color.Tertiary">Obaki.Toolkit</MudText></MudNavLink>
+            <MudDivider class="my-6"/>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.FormatShapes" IconColor="Color.Tertiary">
+                <MudText Typo="Typo.caption" Color="Color.Tertiary">XmlEscaper</MudText>
+            </MudNavLink>
+        </div>
     </MudDrawer>
+
     <MudMainContent>
         <MudContainer MaxWidth="MaxWidth.Large" Class="my-16 pt-16">
             @Body
@@ -25,10 +32,9 @@
 </MudLayout>
 
 @code {
-     private MudTheme _theme = DefaultTheme.ApplyTheme();
-        private bool _isDarkMode = true;
-    bool _drawerOpen = true;
-
+    private MudTheme _theme = DefaultTheme.ApplyTheme();
+    private bool _isDarkMode = true;
+    bool _drawerOpen = false;
     void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;

@@ -198,14 +198,14 @@
       "netstandard.dll": "sha256-CgGkoZQx73t3qchcsu85kgBcgrjNEOiudArOwKNb18k=",
       "System.Private.CoreLib.dll": "sha256-6nUSjiT7okMlkN897OnDypwppYuK7JxTahOClXkAuwE=",
       "Obaki.Toolkit.Application.dll": "sha256-HLX\/iipBy4lDWT5Lp8dpaqml7qLbiIjy08D3LKE1ctc=",
-      "Obaki.Toolkit.Client.dll": "sha256-rdttUQSSD4bpCqr6MChcmRcTEyjScbCr+R0GkW04AxM="
+      "Obaki.Toolkit.Client.dll": "sha256-siMEs4K7utPFQBl9oAOz+8RDCN00L0o8rztYHOM1SHM="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
       "Obaki.Toolkit.Application.pdb": "sha256-wZqhqgOlErPNlFDNFn\/tkZ0oCM9L77888gTxuoEgY64=",
-      "Obaki.Toolkit.Client.pdb": "sha256-vw2fMpATnY2y7E+QB3oWaWzTElWAHT9C\/ItbMVb98YU="
+      "Obaki.Toolkit.Client.pdb": "sha256-ujm1IHkIMh7loRDYtrFdOTC+jbVEyDalaKF6+0gnXao="
     },
     "runtime": {
       "dotnet.6.0.16.avn6b5txig.js": "sha256-GT2gK+GjOisRXJY+9yh6H8s6K\/KDIsaFMFIgWvAnttY=",
