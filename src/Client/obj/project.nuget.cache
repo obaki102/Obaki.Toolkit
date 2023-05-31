@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LSMX8fEn36QGiCIQVz5TMDuharg6F7T1Yz4hSn+wskcqB+jcsF+H1a3BTWal2yQwgUKJePXxs5v4Q74J5udq8w==",
+  "dgSpecHash": "CeYmJ7m6loGwm3qSm9XQ/R4xu96M17mmruB672hwD5QhndULU7XuGxkb9gnzK/W2dMNj40tSszewGpb/DWsHkg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\Obaki.Toolkit.Client.csproj",
+  "projectFilePath": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\client\\Obaki.Toolkit.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\joshu\\.nuget\\packages\\microsoft.aspnetcore.authorization\\7.0.5\\microsoft.aspnetcore.authorization.7.0.5.nupkg.sha512",
     "C:\\Users\\joshu\\.nuget\\packages\\microsoft.aspnetcore.components\\7.0.5\\microsoft.aspnetcore.components.7.0.5.nupkg.sha512",
