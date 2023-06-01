@@ -4,7 +4,7 @@ public interface ITextEditor<T>
         void SetValue(T state);
         void RevertValue();
         void ReplayValue();
-        T GetValue();
+        T? GetValue();
         bool IsRevertStackEmpty();
         bool IsReplayStackEmpty();
 }

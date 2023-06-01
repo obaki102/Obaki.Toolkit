@@ -1,10 +1,10 @@
 namespace Obaki.Toolkit.Application.Features.XmlAutoEscaper.Services.TextEditor;
 
-internal sealed class Memory<T> : IMemory<T>
+internal sealed class Memento<T> : IMemento<T>
 {
     public T State { get; }
 
-    public Memory(T state)
+    public Memento(T state)
     {
         State = state;
     }
