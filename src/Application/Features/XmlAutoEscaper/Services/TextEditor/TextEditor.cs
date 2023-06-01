@@ -5,7 +5,7 @@ internal class TextEditor<T> : ITextEditor<T>, IDisposable
 {
     private readonly IMementoStore<T> _mementoStore;
     private T? _state;
-    internal TextEditor()
+    public TextEditor()
     {
         _mementoStore = new MementoStore<T>();
 
