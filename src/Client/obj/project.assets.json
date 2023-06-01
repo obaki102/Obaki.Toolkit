@@ -442,6 +442,15 @@
           "buildMultiTargeting/MudBlazor.props": {}
         }
       },
+      "Obaki.XmlSpecialCharacterEscaper/0.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Obaki.XmlSpecialCharacterEscaper.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Obaki.XmlSpecialCharacterEscaper.dll": {}
+        }
+      },
       "System.IO.Pipelines/7.0.0": {
         "type": "package",
         "compile": {
@@ -502,6 +511,10 @@
       "Obaki.Toolkit.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "7.0.0",
+          "Obaki.XmlSpecialCharacterEscaper": "0.0.5"
+        },
         "compile": {
           "bin/placeholder/Obaki.Toolkit.Application.dll": {}
         },
@@ -951,6 +964,15 @@
           "buildMultiTargeting/MudBlazor.props": {}
         }
       },
+      "Obaki.XmlSpecialCharacterEscaper/0.0.5": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Obaki.XmlSpecialCharacterEscaper.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Obaki.XmlSpecialCharacterEscaper.dll": {}
+        }
+      },
       "System.IO.Pipelines/7.0.0": {
         "type": "package",
         "compile": {
@@ -1005,6 +1027,10 @@
       "Obaki.Toolkit.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "7.0.0",
+          "Obaki.XmlSpecialCharacterEscaper": "0.0.5"
+        },
         "compile": {
           "bin/placeholder/Obaki.Toolkit.Application.dll": {}
         },
@@ -1753,6 +1779,18 @@
         "staticwebassets/MudBlazor.min.js"
       ]
     },
+    "Obaki.XmlSpecialCharacterEscaper/0.0.5": {
+      "sha512": "Um6XBZvOHyT+tFC4AlQXQlo9cq0J15884Bnw9PnOEv90LSkiDdt2UGxoBbOZb4Gdw+0ycv0yNtL9RrFOYippAg==",
+      "type": "package",
+      "path": "obaki.xmlspecialcharacterescaper/0.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net6.0/Obaki.XmlSpecialCharacterEscaper.dll",
+        "obaki.xmlspecialcharacterescaper.0.0.5.nupkg.sha512",
+        "obaki.xmlspecialcharacterescaper.nuspec"
+      ]
+    },
     "System.IO.Pipelines/7.0.0": {
       "sha512": "jRn6JYnNPW6xgQazROBLSfpdoczRw694vO5kKvMcNnpXuolEixUyw6IBuBs2Y2mlSX/LdLvyyWmfXhaI3ND1Yg==",
       "type": "package",
@@ -1902,11 +1940,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\Obaki.Toolkit.Client.csproj",
+      "projectUniqueName": "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\Obaki.Toolkit.Client.csproj",
       "projectName": "Obaki.Toolkit.Client",
-      "projectPath": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\Obaki.Toolkit.Client.csproj",
+      "projectPath": "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\Obaki.Toolkit.Client.csproj",
       "packagesPath": "C:\\Users\\joshu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\obj\\",
+      "outputPath": "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\joshu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1924,8 +1962,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\Obaki.Toolkit.Application.csproj": {
-              "projectPath": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\Obaki.Toolkit.Application.csproj"
+            "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\Obaki.Toolkit.Application.csproj": {
+              "projectPath": "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\Obaki.Toolkit.Application.csproj"
             }
           }
         }

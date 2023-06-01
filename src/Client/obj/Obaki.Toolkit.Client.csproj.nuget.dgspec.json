@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\client\\Obaki.Toolkit.Client.csproj": {}
+    "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\Obaki.Toolkit.Client.csproj": {}
   },
   "projects": {
-    "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\Obaki.Toolkit.Application.csproj": {
+    "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\Obaki.Toolkit.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\Obaki.Toolkit.Application.csproj",
+        "projectUniqueName": "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\Obaki.Toolkit.Application.csproj",
         "projectName": "Obaki.Toolkit.Application",
-        "projectPath": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\Obaki.Toolkit.Application.csproj",
+        "projectPath": "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\Obaki.Toolkit.Application.csproj",
         "packagesPath": "C:\\Users\\joshu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\obj\\",
+        "outputPath": "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\joshu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,16 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Obaki.XmlSpecialCharacterEscaper": {
+              "target": "Package",
+              "version": "[0.0.5, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -60,14 +70,14 @@
         }
       }
     },
-    "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\client\\Obaki.Toolkit.Client.csproj": {
+    "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\Obaki.Toolkit.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\client\\Obaki.Toolkit.Client.csproj",
+        "projectUniqueName": "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\Obaki.Toolkit.Client.csproj",
         "projectName": "Obaki.Toolkit.Client",
-        "projectPath": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\client\\Obaki.Toolkit.Client.csproj",
+        "projectPath": "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\Obaki.Toolkit.Client.csproj",
         "packagesPath": "C:\\Users\\joshu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\client\\obj\\",
+        "outputPath": "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\joshu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -85,8 +95,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\Obaki.Toolkit.Application.csproj": {
-                "projectPath": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\Obaki.Toolkit.Application.csproj"
+              "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\Obaki.Toolkit.Application.csproj": {
+                "projectPath": "c:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Application\\Obaki.Toolkit.Application.csproj"
               }
             }
           }
