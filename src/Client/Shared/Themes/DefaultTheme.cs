@@ -38,6 +38,13 @@ public static class DefaultTheme
                     LineHeight = 1.167,
                     LetterSpacing = "-.01562em",
                     FontFamily = new string[] { "Oswald", "sans-serif" }
+                },
+                Caption = new Caption
+                {
+                    FontSize = ".75rem",
+                    FontWeight = 500,
+                    LineHeight = 1.66,
+                    LetterSpacing = ".03333em",
                 }
             }
         };
