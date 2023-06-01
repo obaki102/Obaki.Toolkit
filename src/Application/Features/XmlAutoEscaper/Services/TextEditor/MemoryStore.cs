@@ -2,10 +2,10 @@ namespace Obaki.Toolkit.Application.Features.XmlAutoEscaper.Services.TextEditor;
 
 internal sealed class MemoryStore<T> : IMemoryStore<T>
 {
-    private readonly Dictionary<ITextEditor<T>, Stack<IStateKeeper<T>>> _revertMemoryStore =
-      new Dictionary<ITextEditor<T>, Stack<IStateKeeper<T>>>();
-    private readonly Dictionary<ITextEditor<T>, Stack<IStateKeeper<T>>> _replayMemoryStore =
-        new Dictionary<ITextEditor<T>, Stack<IStateKeeper<T>>>();
+    private readonly Dictionary<ITextEditor<T>, Stack<IMemory<T>>> _revertMemoryStore =
+      new Dictionary<ITextEditor<T>, Stack<IMemory<T>>>();
+    private readonly Dictionary<ITextEditor<T>, Stack<IMemory<T>>> _replayMemoryStore =
+        new Dictionary<ITextEditor<T>, Stack<IMemory<T>>>();
     public bool IsRevertStackEmpty(ITextEditor<T> textEditor)
     {
         if (!_revertMemoryStore.TryGetValue(textEditor, out var revertStack))
@@ -26,7 +26,7 @@ internal sealed class MemoryStore<T> : IMemoryStore<T>
         return replayStack.Count == 0;
     }
 
-    public IStateKeeper<T> PeekReplayValue(ITextEditor<T> textEditor)
+    public IMemory<T> PeekReplayValue(ITextEditor<T> textEditor)
     {
         if (!_replayMemoryStore.TryGetValue(textEditor, out var replayStack))
         {
@@ -36,7 +36,7 @@ internal sealed class MemoryStore<T> : IMemoryStore<T>
         return replayStack.Peek();
     }
 
-    public IStateKeeper<T> PeekRevertValue(ITextEditor<T> textEditor)
+    public IMemory<T> PeekRevertValue(ITextEditor<T> textEditor)
     {
         if (!_revertMemoryStore.TryGetValue(textEditor, out var reverStack))
         {
@@ -46,7 +46,7 @@ internal sealed class MemoryStore<T> : IMemoryStore<T>
         return reverStack.Peek();
     }
 
-    public IStateKeeper<T> ReplayValue(ITextEditor<T> textEditor)
+    public IMemory<T> ReplayValue(ITextEditor<T> textEditor)
     {
         if (!_replayMemoryStore.TryGetValue(textEditor, out var replayStack))
         {
@@ -62,7 +62,7 @@ internal sealed class MemoryStore<T> : IMemoryStore<T>
         return replayStack.Pop();
     }
 
-    public IStateKeeper<T> RevertValue(ITextEditor<T> textEditor)
+    public IMemory<T> RevertValue(ITextEditor<T> textEditor)
     {
         if (!_revertMemoryStore.TryGetValue(textEditor, out var revertStack))
         {
@@ -78,26 +78,26 @@ internal sealed class MemoryStore<T> : IMemoryStore<T>
         return revertStack.Pop();
     }
 
-    public void SetReplayValue(ITextEditor<T> textEditor, IStateKeeper<T> stateKeeper)
+    public void SetReplayValue(ITextEditor<T> textEditor, IMemory<T> memory)
     {
         if (!_replayMemoryStore.TryGetValue(textEditor, out var replayStack))
         {
-            replayStack = new Stack<IStateKeeper<T>>();
+            replayStack = new Stack<IMemory<T>>();
             _replayMemoryStore.Add(textEditor, replayStack);
         }
 
-        replayStack.Push(stateKeeper);
+        replayStack.Push(memory);
     }
 
-    public void SetRevertValue(ITextEditor<T> textEditor, IStateKeeper<T> stateKeeper)
+    public void SetRevertValue(ITextEditor<T> textEditor, IMemory<T> memory)
     {
         if (!_revertMemoryStore.TryGetValue(textEditor, out var revertStack))
         {
-            revertStack = new Stack<IStateKeeper<T>>();
+            revertStack = new Stack<IMemory<T>>();
             _replayMemoryStore.Add(textEditor, revertStack);
         }
 
-        revertStack.Push(stateKeeper);
+        revertStack.Push(memory);
     }
 
     public void Destroy(ITextEditor<T> textEditor)

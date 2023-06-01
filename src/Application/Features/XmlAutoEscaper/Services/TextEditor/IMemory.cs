@@ -1,5 +1,5 @@
 namespace Obaki.Toolkit.Application.Features.XmlAutoEscaper.Services.TextEditor;
-public interface IStateKeeper<T> 
+public interface IMemory<T> 
 {
       T State { get; }
 }
