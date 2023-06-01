@@ -7,4 +7,5 @@ public interface ITextEditor<T>
         T? GetValue();
         bool IsRevertStackEmpty();
         bool IsReplayStackEmpty();
+        string EscapeXmlString(string input);
 }

@@ -1,10 +1,11 @@
-namespace Obaki.Toolkit.Application.Features.XmlAutoEscaper.Services.TextEditor;
 
+using Obaki.XmlSpecialCharacterEscaper;
+namespace Obaki.Toolkit.Application.Features.XmlAutoEscaper.Services.TextEditor;
 internal class TextEditor<T> : ITextEditor<T>, IDisposable
 {
     private readonly IMementoStore<T> _mementoStore;
     private T? _state;
-    public TextEditor()
+    internal TextEditor()
     {
         _mementoStore = new MementoStore<T>();
 
@@ -36,6 +37,8 @@ internal class TextEditor<T> : ITextEditor<T>, IDisposable
         SetValue(previousValue.State);
     }
 
+    public string  EscapeXmlString(string xmlInput) => xmlInput.Escape(TextEditorConstants.XmlRegexPattern);
+  
     public void Dispose()
     {
         Dispose(true);
