@@ -1,0 +1,58 @@
+﻿@page "/XmlAutoEscaper"
+<PageTitle>XmlAutoEscaper</PageTitle>
+<MudPaper Elevation="1" class="mb-4" Outlined="true">
+    <MudToolBar>
+
+        @* <MudTooltip Text="Undo (Alt + U)" Color="Color.Primary" Placement="Placement.Top">
+        <MudIconButton OnClick="Undo" Icon="@Icons.Material.Filled.Undo" Color="Color.Primary" Class="ma-2"
+        Disabled="@isUndoStackEmpty" />
+        </MudTooltip>
+
+        <MudTooltip Text="Redo (Alt + R)" Color="Color.Primary" Placement="Placement.Top">
+        <MudIconButton OnClick="Redo" Icon="@Icons.Material.Filled.Redo" Color="Color.Primary" Class="ma-2"
+        Disabled="@isRedoStackEmpty" />
+        </MudTooltip>
+
+
+        <MudTooltip Text="Download (Alt + D)" Color="Color.Primary" Placement="Placement.Top">
+        <MudIconButton OnClick="SaveFile" Icon="@Icons.Material.Filled.FileDownload" Color="Color.Primary"
+        Class="ma-2" />
+        </MudTooltip>
+
+        <MudTooltip Text="Copy text from editor (Alt + C)" Color="Color.Primary" Placement="Placement.Top">
+        <MudIconButton OnClick="CopyTextFromEditor" Icon="@Icons.Material.Filled.ContentCopy"
+        Color="Color.Primary" Class="ma-2" />
+        </MudTooltip>
+
+        <MudTooltip Text="Paste from clipboard (Alt + V)" Color="Color.Primary" Placement="Placement.Top">
+        <MudIconButton OnClick="PasteFromClipboard" Icon="@Icons.Material.Filled.ContentPaste"
+        Color="Color.Primary" Class="ma-2" />
+        </MudTooltip>
+
+        <MudTooltip Text="Remove square brackets (Alt + B)" Color="Color.Primary" Placement="Placement.Top">
+        <MudIconButton OnClick="RemoveSquareBrackets" Icon="@Icons.Material.Filled.CropSquare"
+        Color="Color.Primary" Class="ma-2" />
+        </MudTooltip>
+
+        <MudTooltip Text="Asset id auto formatter (Alt + F)" Color="Color.Primary" Placement="Placement.Top">
+        <MudIconButton OnClick="ShowAssetIdFormatter" Icon="@Icons.Material.Filled.FormatPaint" Color="Color.Primary"
+        Class="ma-2" />
+        </MudTooltip>
+
+        <MudTooltip Text="Show changes (Alt + X)" Color="Color.Primary" Placement="Placement.Top">
+        <MudIconButton OnClick="ShowChanges" Icon="@Icons.Material.Filled.Difference" Color="Color.Primary"
+        Class="ma-2" />
+        </MudTooltip>  *@
+
+        <MudSpacer />
+
+        <MudTooltip Text="Auto escape special characters (Alt + Enter)" Color="Color.Primary"
+            Placement="Placement.Bottom">
+            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.FormatShapes" Color="Color.Primary"
+               OnClick="AutoEscape" Size="Size.Small" Class="ma-2">Auto Escape
+            </MudButton>
+        </MudTooltip>
+    </MudToolBar>
+</MudPaper>
+<StandaloneCodeEditor @ref="_editor" id="editor-id-original" ConstructionOptions="EditorConstructionOptions"
+    OnDidInit="EditorOnDidInit" CssClass="editor" />
