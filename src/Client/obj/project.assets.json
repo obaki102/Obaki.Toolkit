@@ -2245,11 +2245,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\client\\Obaki.Toolkit.Client.csproj",
+      "projectUniqueName": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\Obaki.Toolkit.Client.csproj",
       "projectName": "Obaki.Toolkit.Client",
-      "projectPath": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\client\\Obaki.Toolkit.Client.csproj",
+      "projectPath": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\Obaki.Toolkit.Client.csproj",
       "packagesPath": "C:\\Users\\joshu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\client\\obj\\",
+      "outputPath": "C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\joshu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2331,5 +2331,13 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\joshu\\source\\repos\\Obaki.Toolkit\\src\\Client\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
