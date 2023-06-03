@@ -86,3 +86,7 @@ h1:focus {
 .loading-progress-text:after {
     content: var(--blazor-load-percentage-text, "Loading");
 }
+
+.editor {
+	height: 80vh;
+}
