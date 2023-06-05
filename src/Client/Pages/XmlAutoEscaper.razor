@@ -1,5 +1,5 @@
 ﻿@page "/XmlAutoEscaper"
-<PageTitle>XmlAutoEscaper</PageTitle>
+<PageTitle>Xml AutoEscaper</PageTitle>
 <MudPaper Elevation="1" class="mb-4" Outlined="true">
     <MudToolBar>
 
@@ -42,14 +42,18 @@
         <MudTooltip Text="Show changes (Alt + X)" Color="Color.Primary" Placement="Placement.Top">
         <MudIconButton OnClick="ShowChanges" Icon="@Icons.Material.Filled.Difference" Color="Color.Primary"
         Class="ma-2" />
-        </MudTooltip>  *@
+        </MudTooltip> *@
 
         <MudSpacer />
-
-        <MudTooltip Text="Auto escape special characters (Alt + Enter)" Color="Color.Primary"
-            Placement="Placement.Bottom">
+        <MudTooltip Text="" Color="Color.Primary" Placement="Placement.Bottom">
             <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.FormatShapes" Color="Color.Primary"
-               OnClick="AutoEscape" Size="Size.Small" Class="ma-2">Auto Escape
+                OnClick="ValidateXml" Size="Size.Small" Class="ma-2">Validate Xml
+            </MudButton>
+        </MudTooltip>
+
+        <MudTooltip Text="" Color="Color.Primary" Placement="Placement.Bottom">
+            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.FormatShapes" Color="Color.Primary"
+                OnClick="AutoEscape" Size="Size.Small" Class="ma-2">Auto Escape
             </MudButton>
         </MudTooltip>
     </MudToolBar>

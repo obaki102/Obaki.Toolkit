@@ -26,7 +26,9 @@ public static class DefaultTheme
             LayoutProperties = new LayoutProperties
             {
                 AppbarHeight = "90px",
-                DefaultBorderRadius = "6px",
+                DefaultBorderRadius = "6px"
+               
+                
             },
             Typography = new Typography
             {
@@ -41,7 +43,7 @@ public static class DefaultTheme
                 },
                 Caption = new Caption
                 {
-                    FontSize = ".75rem",
+                    FontSize = ".85rem",
                     FontWeight = 500,
                     LineHeight = 1.66,
                     LetterSpacing = ".03333em",

@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Obaki.Toolkit.Client.props" />
-</Project>

@@ -16,11 +16,16 @@
     <MudDrawer @bind-Open="@_drawerOpen" ClipMode="DrawerClipMode.Never" Elevation="10" Variant="@DrawerVariant.Mini">
         <div class="mud-navmenu mud-navmenu mud-navmenu-margin-none">
             <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Code" class="my-6"
-                IconColor="Color.Tertiary"><MudText Typo="Typo.h1" Color="Color.Tertiary">Obaki.Toolkit</MudText></MudNavLink>
-            <MudDivider class="my-6"/>
-            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.FormatShapes" IconColor="Color.Tertiary" Href="XmlAutoEscaper">
-                <MudText Typo="Typo.caption" Color="Color.Tertiary">XmlAutoEscaper</MudText>
+                IconColor="Color.Tertiary" Href="">
+                <MudText Typo="Typo.h1" Color="Color.Tertiary">Obaki.Toolkit</MudText>
             </MudNavLink>
+            <MudDivider class="my-6" />
+            <MudTooltip Text="@(_drawerOpen ? string.Empty : "Xml AutoEscaper")" Color="Color.Primary" Placement="Placement.Right">
+                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.FormatShapes"
+                    IconColor="Color.Tertiary" Href="XmlAutoEscaper" Text="Xml AutoEscaper">
+                    <MudText Typo="Typo.caption" Color="Color.Tertiary">Xml AutoEscaper</MudText>
+                </MudNavLink>
+            </MudTooltip>
         </div>
     </MudDrawer>
 

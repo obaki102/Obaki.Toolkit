@@ -2,6 +2,7 @@ using BlazorMonaco.Editor;
 using MudBlazor;
 using Microsoft.AspNetCore.Components;
 using Obaki.Toolkit.Application.Features.XmlAutoEscaper.Services.TextEditor;
+using System.Xml;
 
 namespace Obaki.Toolkit.Client.Pages
 {
@@ -39,10 +40,25 @@ namespace Obaki.Toolkit.Client.Pages
             var input = await _editor.GetValue();
             if (!IsXmlIsEmpty(input))
             {
-               var escapedResult = TextEditor!.EscapeXmlString(input);
+                var escapedResult = TextEditor!.EscapeXmlString(input);
                 await _editor.SetValue(escapedResult);
                 Succcess("Special characters escaped.");
-               
+
+            }
+        }
+
+        private async Task ValidateXml()
+        {
+            var input = await _editor.GetValue();
+            XmlDocument xmlDoc = new XmlDocument();
+            try
+            {
+                xmlDoc.LoadXml(input);
+                Succcess("Valid XML.");
+            }
+            catch (XmlException)
+            {
+                Failed("Invalid Xml input. Please check the xml for any unescaped special characters(&,<>,\") or  unclosed tags.");
             }
         }
 
