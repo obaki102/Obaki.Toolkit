@@ -60,7 +60,7 @@ namespace Obaki.Toolkit.Client.Pages
                 }
                 catch (XmlException)
                 {
-                    Failed("Invalid Xml input. Please check the xml for any unescaped special characters(&,<>,\") or  unclosed tags.");
+                    Failed("Invalid XML");
                 }
 
             }
