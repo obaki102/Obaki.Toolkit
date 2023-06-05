@@ -50,26 +50,30 @@ namespace Obaki.Toolkit.Client.Pages
         private async Task ValidateXml()
         {
             var input = await _editor.GetValue();
-            XmlDocument xmlDoc = new XmlDocument();
-            try
+            if (!IsXmlIsEmpty(input))
             {
-                xmlDoc.LoadXml(input);
-                Succcess("Valid XML.");
-            }
-            catch (XmlException)
-            {
-                Failed("Invalid Xml input. Please check the xml for any unescaped special characters(&,<>,\") or  unclosed tags.");
+                XmlDocument xmlDoc = new XmlDocument();
+                try
+                {
+                    xmlDoc.LoadXml(input);
+                    Succcess("Valid XML.");
+                }
+                catch (XmlException)
+                {
+                    Failed("Invalid Xml input. Please check the xml for any unescaped special characters(&,<>,\") or  unclosed tags.");
+                }
+
             }
         }
 
-        private bool IsXmlIsEmpty(string xml)
-        {
-            if (string.IsNullOrEmpty(xml))
+            private bool IsXmlIsEmpty(string xml)
             {
-                Failed("Please enter a valid XML string.");
-                return true;
+                if (string.IsNullOrEmpty(xml))
+                {
+                    Failed("Please enter a valid XML string.");
+                    return true;
+                }
+                return false;
             }
-            return false;
         }
     }
-}
