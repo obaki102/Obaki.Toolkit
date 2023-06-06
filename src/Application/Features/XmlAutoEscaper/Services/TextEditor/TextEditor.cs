@@ -38,6 +38,7 @@ internal class TextEditor<T> : ITextEditor<T>, IDisposable
     }
 
     public string  EscapeXmlString(string xmlInput) => xmlInput.Escape(TextEditorConstants.XmlRegexPattern);
+    public string  EscapeString(string xmlInput) => xmlInput.Escape();
   
     public void Dispose()
     {
