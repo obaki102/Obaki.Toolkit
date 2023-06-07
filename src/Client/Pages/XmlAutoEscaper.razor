@@ -37,31 +37,54 @@
         <MudTooltip Text="Asset id auto formatter (Alt + F)" Color="Color.Primary" Placement="Placement.Top">
         <MudIconButton OnClick="ShowAssetIdFormatter" Icon="@Icons.Material.Filled.FormatPaint" Color="Color.Primary"
         Class="ma-2" />
-
-
         </MudTooltip> *@
-        <MudTooltip Text="Show changes" Color="Color.Primary" Placement="Placement.Left">
-            <MudIconButton OnClick="ShowChanges" Icon="@Icons.Material.Filled.Difference" Color="Color.Primary"
-                Class="ma-2" />
-        </MudTooltip>
-        <MudSpacer />
-        <MudTooltip Text="" Color="Color.Primary" Placement="Placement.Bottom">
-            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.FormatShapes" Color="Color.Primary"
-                OnClick="ValidateXml" Size="Size.Small" Class="ma-2">Validate Xml
-            </MudButton>
-        </MudTooltip>
+        <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
+            <MudTooltip Text="Show changes" Color="Color.Primary" Placement="Placement.Left">
+                <MudIconButton OnClick="ShowChanges" Icon="@Icons.Material.Filled.Difference" Color="Color.Primary"
+                    Class="ma-2" />
+            </MudTooltip>
+            <MudSpacer />
+            <MudTooltip Text="Validate Xml" Color="Color.Primary" Placement="Placement.Bottom">
+                <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Check" Color="Color.Primary"
+                    OnClick="ValidateXml" Size="Size.Small" Class="ma-2">Validate Xml
+                </MudButton>
+            </MudTooltip>
 
-        <MudTooltip Text="Auto escape valid xml" Color="Color.Primary" Placement="Placement.Bottom">
-            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.FormatShapes" Color="Color.Primary"
-                OnClick="(() => AutoEscape(true))" Size="Size.Small" Class="ma-2">Auto Escape XML
-            </MudButton>
-        </MudTooltip>
+            <MudTooltip Text="Auto escape valid xml" Color="Color.Primary" Placement="Placement.Bottom">
+                <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Spellcheck" Color="Color.Primary"
+                    OnClick="(() => AutoEscape(true))" Size="Size.Small" Class="ma-2">Auto Escape XML
+                </MudButton>
+            </MudTooltip>
 
-        <MudTooltip Text="Auto escape any string" Color="Color.Primary" Placement="Placement.Bottom">
-            <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.FormatShapes" Color="Color.Primary"
-                OnClick="(() => AutoEscape(false))" Size="Size.Small" Class="ma-2">Auto Escape String
-            </MudButton>
-        </MudTooltip>
+            <MudTooltip Text="Auto escape any string" Color="Color.Primary" Placement="Placement.Bottom">
+                <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.FormatShapes"
+                    Color="Color.Primary" OnClick="(() => AutoEscape(false))" Size="Size.Small" Class="ma-2">Auto Escape
+                    String
+                </MudButton>
+            </MudTooltip>
+        </MudHidden>
+
+        <MudHidden Breakpoint="Breakpoint.SmAndDown" Invert="true">
+            <MudTooltip Text="Show changes" Color="Color.Primary" Placement="Placement.Left">
+                <MudIconButton OnClick="ShowChanges" Icon="@Icons.Material.Filled.Difference" Color="Color.Primary"
+                    Class="ma-2" />
+            </MudTooltip>
+            <MudSpacer />
+            <MudTooltip Text="Validate Xml" Color="Color.Primary" Placement="Placement.Bottom">
+                <MudIconButton  Icon="@Icons.Material.Filled.Check" Color="Color.Primary"
+                    OnClick="ValidateXml" Size="Size.Small" Class="ma-2"/> 
+            </MudTooltip>
+
+            <MudTooltip Text="Auto escape valid xml" Color="Color.Primary" Placement="Placement.Bottom">
+                <MudIconButton  Icon="@Icons.Material.Filled.Spellcheck"
+                    Color="Color.Primary" OnClick="(() => AutoEscape(true))" Size="Size.Small" Class="ma-2"/> 
+            </MudTooltip>
+
+            <MudTooltip Text="Auto escape any string" Color="Color.Primary" Placement="Placement.Bottom">
+                <MudIconButton Icon="@Icons.Material.Filled.FormatShapes"
+                    Color="Color.Primary" OnClick="(() => AutoEscape(false))" Size="Size.Small" Class="ma-2"/> 
+            </MudTooltip>
+        </MudHidden>
     </MudToolBar>
 </MudPaper>
 <StandaloneCodeEditor @ref="_editor" id="editor-id-original" ConstructionOptions="EditorConstructionOptions"
