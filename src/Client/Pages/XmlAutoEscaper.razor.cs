@@ -11,7 +11,7 @@ public partial class XmlAutoEscaper
     [Inject] ITextEditor<(string, string)>? TextEditor { get; set; }
     private StandaloneCodeEditor _editor = default!;
 
-    private (string oldValue, string newValue) value = default;
+    private (string OldValue, string NewValue) value = default;
     private StandaloneEditorConstructionOptions EditorConstructionOptions(StandaloneCodeEditor editor)
     {
         return new StandaloneEditorConstructionOptions
@@ -91,11 +91,10 @@ public partial class XmlAutoEscaper
             FullWidth = true,
             Position = DialogPosition.Center
         };
+
         var parameters = new DialogParameters();
-        var oldValue = value.oldValue;
-        var newValue = value.newValue;
-        parameters.Add("OldValue", oldValue);
-        parameters.Add("NewValue", newValue);
+        parameters.Add("OldValue", value.OldValue);
+        parameters.Add("NewValue", value.NewValue);
         DialogService!.Show<XmlAutoEscapeDialog>("Compare Changes", parameters, options);
     }
 }

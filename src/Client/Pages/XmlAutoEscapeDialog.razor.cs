@@ -47,4 +47,6 @@ public partial class XmlAutoEscapeDialog
         // Set the editor model
         await _diffEditor.SetModel(new DiffEditorModel { Original = original_model, Modified = modified_model });
     }
+
+    
 }
