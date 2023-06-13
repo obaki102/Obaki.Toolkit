@@ -1,0 +1,99 @@
+@implements IDisposable
+@page "/helltide-timer"
+<PageTitle>HellTide Timer</PageTitle>
+<MudPaper Class="d-flex justify-center flex-grow-1 gap-4 mt-16" Elevation="1">
+    <MudStack class="ma-4">
+        <MudText Typo="Typo.h3" GutterBottom="true">@message</MudText>
+        <MudText Typo="Typo.h3" GutterBottom="true">@counter</MudText>
+    </MudStack>
+</MudPaper>
+
+@code
+{
+    private static Timer? _timer;
+    private static DateTime _baseTime;
+    private string counter = string.Empty;
+    private string message = string.Empty;
+    private bool isOngoing = false;
+    private TimeSpan _remainingTime;
+    protected override void OnInitialized()
+    {
+        _baseTime = new DateTime(2023, 6, 13, 4, 45, 0, DateTimeKind.Utc);
+        _remainingTime = GetRemainingTime();
+        _timer = new(1000);
+        _timer.Elapsed += TimerElapsed;
+        _timer.Start();
+    }
+
+    private void TimerElapsed(object? sender, ElapsedEventArgs e)
+    {
+        // Decrement the remaining interval by 1 second
+        _remainingTime = _remainingTime.Subtract(TimeSpan.FromSeconds(1));
+        if (isOngoing)
+        {
+            message = "Helltide is now ongoing";
+            counter = $"{_remainingTime.Minutes} minutes {_remainingTime.Seconds} seconds";
+        }
+        else
+        {
+            message = "Next Helltide will start on:";
+            if (_remainingTime.Hours > 0)
+            {
+                counter = $"{_remainingTime.Hours} hour {_remainingTime.Minutes} minutes {_remainingTime.Seconds} seconds";
+            }
+            else
+            {
+                 counter = $"{_remainingTime.Minutes} minutes {_remainingTime.Seconds} seconds";
+            }
+        }
+
+        if (_remainingTime.TotalSeconds <= 0)
+        {
+            _remainingTime = GetRemainingTime();
+        }
+        StateHasChanged();
+    }
+
+
+    private TimeSpan GetRemainingTime()
+    {
+        DateTime currentTime = DateTime.UtcNow;
+        TimeSpan timeSinceStart = currentTime - _baseTime;
+
+        int totalIntervalMinutes = 60 + 75; // Sum of the two alternating intervals
+
+        // Calculate the elapsed intervals
+        int elapsedIntervals = (int)(timeSinceStart.TotalMinutes / totalIntervalMinutes);
+
+        // Calculate the time elapsed within the current interval
+        TimeSpan timeElapsedWithinInterval = timeSinceStart - TimeSpan.FromMinutes(elapsedIntervals * totalIntervalMinutes);
+
+
+        // Determine the current interval based on time elapsed within interval
+        if (timeElapsedWithinInterval.TotalMinutes < 60)
+        {
+            isOngoing = true;
+            return TimeSpan.FromMinutes(60 - (timeElapsedWithinInterval.Minutes % 60));
+        }
+        else
+        {
+            isOngoing = false;
+            return TimeSpan.FromMinutes(75 - (timeElapsedWithinInterval.Minutes % 75));
+        }
+    }
+
+    public void Dispose()
+    {
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            _timer!.Elapsed -= TimerElapsed;
+        }
+    }
+
+}

@@ -41,6 +41,14 @@ public static class DefaultTheme
                     LetterSpacing = "-.01562em",
                     FontFamily = new string[] { "Oswald", "sans-serif" }
                 },
+                 H3 = new H3
+                {
+                    FontSize = "2rem",
+                    FontWeight = 700,
+                    LineHeight = 1.167,
+                    LetterSpacing = "-.01562em",
+                    FontFamily = new string[] { "Diablo", "sans-serif" }
+                },
                 Caption = new Caption
                 {
                     FontSize = ".85rem",
