@@ -1,12 +1,23 @@
 @implements IDisposable
 @page "/helltide-timer"
 <PageTitle>HellTide Timer</PageTitle>
-<MudPaper Class="d-flex justify-center flex-grow-1 gap-4 mt-16" Elevation="1">
-    <MudStack class="ma-4">
-        <MudText Typo="Typo.h3" GutterBottom="true">@message</MudText>
-        <MudText Typo="Typo.h3" GutterBottom="true">@counter</MudText>
-    </MudStack>
-</MudPaper>
+@if (string.IsNullOrEmpty(counter))
+{
+    <MudPaper Class="d-flex justify-center flex-grow-1 gap-4 mt-16" Elevation="1">
+        <MudStack class="ma-4">
+            <MudText Typo="Typo.h3" GutterBottom="true">loading...</MudText>
+        </MudStack>
+    </MudPaper>
+}
+else
+{
+    <MudPaper Class="d-flex justify-center flex-grow-1 gap-4 mt-16" Elevation="1">
+        <MudStack class="ma-4">
+            <MudText Typo="Typo.h3" GutterBottom="true">@message</MudText>
+            <MudText Typo="Typo.h3" GutterBottom="true">@counter</MudText>
+        </MudStack>
+    </MudPaper>
+}
 
 @code
 {
@@ -18,8 +29,9 @@
     private TimeSpan _remainingTime;
     protected override void OnInitialized()
     {
-        _baseTime = new DateTime(2023, 6, 13, 4, 45, 0, DateTimeKind.Utc);
+        _baseTime = new DateTime(2023, 6, 13, 7, 0, 0, DateTimeKind.Utc);
         _remainingTime = GetRemainingTime();
+        Console.WriteLine(_remainingTime);
         _timer = new(1000);
         _timer.Elapsed += TimerElapsed;
         _timer.Start();
@@ -27,23 +39,23 @@
 
     private void TimerElapsed(object? sender, ElapsedEventArgs e)
     {
-        // Decrement the remaining interval by 1 second
         _remainingTime = _remainingTime.Subtract(TimeSpan.FromSeconds(1));
         if (isOngoing)
         {
-            message = "Helltide is now ongoing";
+            message = "Helltide is now ongoing:";
             counter = $"{_remainingTime.Minutes} minutes {_remainingTime.Seconds} seconds";
         }
         else
         {
-            message = "Next Helltide will start on:";
+            message = "Next Helltide will start in:";
             if (_remainingTime.Hours > 0)
             {
                 counter = $"{_remainingTime.Hours} hour {_remainingTime.Minutes} minutes {_remainingTime.Seconds} seconds";
+                
             }
             else
             {
-                 counter = $"{_remainingTime.Minutes} minutes {_remainingTime.Seconds} seconds";
+                counter = $"{_remainingTime.Minutes} minutes {_remainingTime.Seconds} seconds";
             }
         }
 
@@ -51,6 +63,7 @@
         {
             _remainingTime = GetRemainingTime();
         }
+            
         StateHasChanged();
     }
 
@@ -60,16 +73,11 @@
         DateTime currentTime = DateTime.UtcNow;
         TimeSpan timeSinceStart = currentTime - _baseTime;
 
-        int totalIntervalMinutes = 60 + 75; // Sum of the two alternating intervals
+        int totalIntervalMinutes = 60 + 75;
+        int elapsedIntervals = (int)Math.Floor(timeSinceStart.TotalMinutes / totalIntervalMinutes);
 
-        // Calculate the elapsed intervals
-        int elapsedIntervals = (int)(timeSinceStart.TotalMinutes / totalIntervalMinutes);
-
-        // Calculate the time elapsed within the current interval
         TimeSpan timeElapsedWithinInterval = timeSinceStart - TimeSpan.FromMinutes(elapsedIntervals * totalIntervalMinutes);
 
-
-        // Determine the current interval based on time elapsed within interval
         if (timeElapsedWithinInterval.TotalMinutes < 60)
         {
             isOngoing = true;
