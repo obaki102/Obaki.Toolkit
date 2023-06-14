@@ -31,7 +31,6 @@ else
     {
         _baseTime = new DateTime(2023, 6, 13, 7, 0, 0, DateTimeKind.Utc);
         _remainingTime = GetRemainingTime();
-        Console.WriteLine(_remainingTime);
         _timer = new(1000);
         _timer.Elapsed += TimerElapsed;
         _timer.Start();
@@ -42,16 +41,14 @@ else
         _remainingTime = _remainingTime.Subtract(TimeSpan.FromSeconds(1));
         if (isOngoing)
         {
-            message = "Helltide is now ongoing:";
             counter = $"{_remainingTime.Minutes} minutes {_remainingTime.Seconds} seconds";
         }
         else
         {
-            message = "Next Helltide will start in:";
             if (_remainingTime.Hours > 0)
             {
                 counter = $"{_remainingTime.Hours} hour {_remainingTime.Minutes} minutes {_remainingTime.Seconds} seconds";
-                
+
             }
             else
             {
@@ -63,7 +60,8 @@ else
         {
             _remainingTime = GetRemainingTime();
         }
-            
+        
+        message = isOngoing ? "Helltide is now ongoing:" : "Next Helltide will start in:";
         StateHasChanged();
     }
 
@@ -75,19 +73,20 @@ else
 
         int totalIntervalMinutes = 60 + 75;
         int elapsedIntervals = (int)Math.Floor(timeSinceStart.TotalMinutes / totalIntervalMinutes);
-
+        Console.WriteLine($"elapsed {elapsedIntervals}");
         TimeSpan timeElapsedWithinInterval = timeSinceStart - TimeSpan.FromMinutes(elapsedIntervals * totalIntervalMinutes);
 
         if (timeElapsedWithinInterval.TotalMinutes < 60)
         {
             isOngoing = true;
-            return TimeSpan.FromMinutes(60 - (timeElapsedWithinInterval.Minutes % 60));
+            return TimeSpan.FromMinutes((60 - timeElapsedWithinInterval.Minutes) % 60);
         }
         else
         {
             isOngoing = false;
-            return TimeSpan.FromMinutes(75 - (timeElapsedWithinInterval.Minutes % 75));
+            return TimeSpan.FromMinutes((75 - timeElapsedWithinInterval.Minutes) % 60);
         }
+
     }
 
     public void Dispose()
