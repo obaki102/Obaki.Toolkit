@@ -73,7 +73,6 @@ else
 
         int totalIntervalMinutes = 60 + 75;
         int elapsedIntervals = (int)Math.Floor(timeSinceStart.TotalMinutes / totalIntervalMinutes);
-        Console.WriteLine($"elapsed {elapsedIntervals}");
         TimeSpan timeElapsedWithinInterval = timeSinceStart - TimeSpan.FromMinutes(elapsedIntervals * totalIntervalMinutes);
 
         if (timeElapsedWithinInterval.TotalMinutes < 60)
@@ -84,7 +83,8 @@ else
         else
         {
             isOngoing = false;
-            return TimeSpan.FromMinutes((75 - timeElapsedWithinInterval.Minutes) % 60);
+            int intervalMinutesBy75 = 75 - timeElapsedWithinInterval.Minutes;
+            return TimeSpan.FromMinutes(intervalMinutesBy75 > 60 ?  intervalMinutesBy75 % 75 : intervalMinutesBy75 % 60);
         }
 
     }
