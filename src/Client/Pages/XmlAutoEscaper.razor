@@ -40,7 +40,11 @@
     </MudTooltip> *@
     <MudHidden Breakpoint="Breakpoint.MdAndUp" Invert="true">
         <MudToolBar>
-            <MudTooltip Text="Show changes" Color="Color.Primary" Placement="Placement.Left">
+            <MudTooltip Text="Asset id auto formatter" Color="Color.Primary" Placement="Placement.Left">
+                <MudIconButton OnClick="ShowAssetIdFormatter" Icon="@Icons.Material.Filled.FormatPaint"
+                    Color="Color.Primary" Class="ma-2" />
+            </MudTooltip>
+            <MudTooltip Text="Show changes" Color="Color.Primary" Placement="Placement.Right">
                 <MudIconButton OnClick="ShowChanges" Icon="@Icons.Material.Filled.Difference" Color="Color.Primary"
                     Class="ma-2" />
             </MudTooltip>

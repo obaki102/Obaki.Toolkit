@@ -58,7 +58,7 @@ public partial class XmlAutoEscaper
         var input = await _editor.GetValue();
         if (!IsXmlIsEmpty(input))
         {
-            XmlDocument xmlDoc = new XmlDocument();
+            XmlDocument xmlDoc = new();
             try
             {
                 xmlDoc.LoadXml(input);
@@ -92,9 +92,25 @@ public partial class XmlAutoEscaper
             Position = DialogPosition.Center
         };
 
-        var parameters = new DialogParameters();
-        parameters.Add("OldValue", value.OldValue);
-        parameters.Add("NewValue", value.NewValue);
+        var parameters = new DialogParameters
+        {
+            { "OldValue", value.OldValue },
+            { "NewValue", value.NewValue }
+        };
+
         DialogService!.Show<XmlAutoEscapeDialog>("Compare Changes", parameters, options);
+    }
+
+     private void ShowAssetIdFormatter()
+    {
+        var options = new DialogOptions()
+        {
+            CloseButton = true,
+            MaxWidth = MaxWidth.Large,
+            FullWidth = true,
+            Position = DialogPosition.Center
+        };
+
+        DialogService!.Show<AssetIdFormatterDialog>("Paste any asset ID to auto format", options);
     }
 }
