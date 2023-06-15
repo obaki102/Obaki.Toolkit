@@ -1,0 +1,27 @@
+<MudDialog>
+    <DialogContent>
+        <MudPaper Elevation="1" class="my-4" Outlined="true">
+            <MudToolBar Class="justify-center">
+                <MudCheckBox @bind-Checked="@_isScrippsIncluded" Label="Scripps" Dense="true" Color="Color.Primary"
+                    Class="ma-2" />
+                <MudCheckBox @bind-Checked="@_isDiscoveryIncluded" Label="Discovery" Dense="true"
+                    Color="Color.Secondary" Class="ma-2" />
+                <MudCheckBox @bind-Checked="@_isAeIncluded" Label="AE" Dense="true" Color="Color.Info" Class="ma-2" />
+                <MudCheckBox @bind-Checked="@_isOnPasteActive" Label="On Paste" Dense="true" Color="Color.Default"
+                    Class="ma-2" />
+
+                <MudIconButton Icon="@Icons.Material.Filled.FormatPaint" Variant="Variant.Outlined"
+                    Color="Color.Primary" Size="Size.Small" OnClick="OnClick" Class="ma-2"
+                    Disabled="@_isOnPasteActive" />
+            </MudToolBar>
+        </MudPaper>
+        <MudPaper Height="700px">
+            <StandaloneCodeEditor @ref="_assetIdFormatter" id="asset-id-formatter"
+                ConstructionOptions="EditorConstructionOptions" CssClass="editor" OnDidPaste="OnPaste" />
+        </MudPaper>
+    </DialogContent>
+    <DialogActions>
+    </DialogActions>
+</MudDialog>
+
+
