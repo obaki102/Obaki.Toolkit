@@ -13,26 +13,23 @@
             Link="https://github.com/obaki102/Obaki.Toolkit" Target="_blank" />
     </MudAppBar>
 
-    <MudDrawer @bind-Open="@_drawerOpen" ClipMode="DrawerClipMode.Never" Elevation="10" Variant="@DrawerVariant.Mini">
-        <div class="mud-navmenu mud-navmenu mud-navmenu-margin-none">
+    <MudDrawer @bind-Open="@_drawerOpen" ClipMode="DrawerClipMode.Never" Elevation="1" Variant="@DrawerVariant.Mini"
+        OpenMiniOnHover="true">
+        <MudNavMenu>
             <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Code" class="my-6"
                 IconColor="Color.Tertiary" Href="">
-                <MudText Typo="Typo.h1" Color="Color.Tertiary">Obaki.Toolkit</MudText>
+                <MudText Typo="Typo.h2"> Obaki.Toolkit</MudText>
             </MudNavLink>
             <MudDivider class="my-6" />
-            <MudTooltip Text="@(_drawerOpen ? string.Empty : "Xml AutoEscaper")" Color="Color.Primary" Placement="Placement.Right">
-                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.FormatShapes"
-                    IconColor="Color.Tertiary" Href="XmlAutoEscaper" Text="Xml AutoEscaper" Class="mb-2">
-                    <MudText Typo="Typo.caption" Color="Color.Tertiary" >Xml AutoEscaper</MudText>
-                </MudNavLink>
-            </MudTooltip>
-             <MudTooltip Text="@(_drawerOpen ? string.Empty : "D4 Helltide Timer")" Color="Color.Primary" Placement="Placement.Right">
-                <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Timer"
-                    IconColor="Color.Tertiary" Href="helltide-timer" Text="D4 Helltide Timer" Class="mb-2">
-                    <MudText Typo="Typo.caption" Color="Color.Tertiary">D4 Helltide Timer</MudText>
-                </MudNavLink>
-            </MudTooltip>
-        </div>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.FormatShapes" class="my-2"
+                IconColor="Color.Tertiary" Href="XmlAutoEscaper" Text="Xml AutoEscaper">
+                Xml AutoEscaper
+            </MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Timer" class="my-2"
+                IconColor="Color.Tertiary" Href="helltide-timer" Text="D4 Helltide Timer">
+                D4 Helltide Timer
+            </MudNavLink>
+        </MudNavMenu>
     </MudDrawer>
 
     <MudMainContent>
