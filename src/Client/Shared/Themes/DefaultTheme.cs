@@ -20,7 +20,8 @@ public static class DefaultTheme
                 TextPrimary = "#ecf2f8",
                 PrimaryContrastText = "161b22",
                 AppbarText = "#F5F5F5",
-                Tertiary = "#F5F5F5"
+                Tertiary = "#F5F5F5",
+                Secondary = "#B90401"
 
             },
             LayoutProperties = new LayoutProperties
@@ -39,15 +40,15 @@ public static class DefaultTheme
                     FontWeight = 700,
                     LineHeight = 1.167,
                     LetterSpacing = "-.01562em",
-                    FontFamily = new string[] { "Oswald", "sans-serif" }
+                    FontFamily = new[] { "Oswald", "sans-serif" }
                 },
                  H2 = new H2
                 {
                     FontSize = "1.3rem",
                     FontWeight = 700,
                     LineHeight = 1.167,
-                    LetterSpacing = "-.01562em",
-                    FontFamily = new string[] { "Diablo", "sans-serif" }
+                    LetterSpacing = "-.01562em", 
+                    FontFamily = new[] { "Old Fenris", "serif" }
                 },
                  H3 = new H3
                 {
@@ -55,7 +56,7 @@ public static class DefaultTheme
                     FontWeight = 700,
                     LineHeight = 1.167,
                     LetterSpacing = "-.01562em",
-                    FontFamily = new string[] { "Diablo", "sans-serif" }
+                    FontFamily = new[] { "Old Fenris", "serif" }
                 },
                 Caption = new Caption
                 {

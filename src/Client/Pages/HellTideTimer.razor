@@ -3,7 +3,7 @@
 <PageTitle>HellTide Timer</PageTitle>
 @if (string.IsNullOrEmpty(counter))
 {
-    <MudPaper Class="d-flex justify-center flex-grow-1 gap-4 mt-16" Elevation="1">
+    <MudPaper Class="d-flex justify-center flex-grow-1 gap-4 mt-16" Outlined="true" Elevation="1">
         <MudStack class="ma-4">
             <MudText Typo="Typo.h3" GutterBottom="true">Verifying the Diabolical Helltide...</MudText>
         </MudStack>
@@ -11,7 +11,7 @@
 }
 else
 {
-    <MudPaper Class="d-flex justify-center flex-grow-1 gap-4 mt-16" Elevation="1">
+    <MudPaper Class="d-flex justify-center flex-grow-1 gap-4 mt-16" Outlined="true"  Elevation="1">
         <MudStack class="ma-4">
             <MudText Typo="Typo.h3" GutterBottom="true">@message</MudText>
             <MudText Typo="Typo.h3" GutterBottom="true">@counter</MudText>
@@ -41,7 +41,7 @@ else
         _remainingTime = _remainingTime.Subtract(TimeSpan.FromSeconds(1));
         if (isOngoing)
         {
-            counter = $"{_remainingTime.Minutes} minutes {_remainingTime.Seconds} seconds";
+            counter = $"{_remainingTime.Minutes} minutes {_remainingTime.Seconds} seconds remaining";
         }
         else
         {
