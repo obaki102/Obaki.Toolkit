@@ -42,16 +42,16 @@ else
     private TimeSpan _bossRemainingTime;
     protected override async Task OnInitializedAsync()
     {
-
-        _baseTime = new DateTime(2023, 6, 13, 7, 0, 0, DateTimeKind.Utc);
-        _remainingTime = GetRemainingTime();
-        _timer = new(1000);
-        _timer.Elapsed += TimerElapsed;
-        _timer.Start();
         _upcomingBoss = await D4HttpClient.GetUpcomingBoss();
+        
         if (_upcomingBoss is not null)
         {
             _bossRemainingTime = GetUpcomingBossRemainingTime(_upcomingBoss.Time);
+             _baseTime = new DateTime(2023, 6, 13, 7, 0, 0, DateTimeKind.Utc);
+            _remainingTime = GetRemainingTime();
+            _timer = new(1000);
+            _timer.Elapsed += TimerElapsed;
+            _timer.Start();
         }
     }
 
