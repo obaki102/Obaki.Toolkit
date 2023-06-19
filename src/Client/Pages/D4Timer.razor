@@ -103,11 +103,11 @@ else
         DateTime currentTime = DateTime.UtcNow;
         TimeSpan timeSinceStart = currentTime - _baseTime;
 
-        int totalIntervalMinutes = 60 + 75;
+        int totalIntervalMinutes = 135;
         int elapsedIntervals = (int)Math.Floor(timeSinceStart.TotalMinutes / totalIntervalMinutes);
         TimeSpan timeElapsedWithinInterval = timeSinceStart - TimeSpan.FromMinutes(elapsedIntervals * totalIntervalMinutes);
 
-        if (timeElapsedWithinInterval.TotalMinutes < 60)
+        if (timeElapsedWithinInterval.TotalMinutes <= 60)
         {
             isOngoing = true;
             return TimeSpan.FromMinutes((60 - timeElapsedWithinInterval.Minutes) % 60);
