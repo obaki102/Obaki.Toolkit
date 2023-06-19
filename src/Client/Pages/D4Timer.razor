@@ -1,7 +1,9 @@
 @implements IDisposable
-@page "/helltide-timer"
-<PageTitle>HellTide Timer</PageTitle>
-@if (string.IsNullOrEmpty(counter))
+@inject ID4HttpClient D4HttpClient
+@page "/d4-timer"
+
+<PageTitle>D4 Timer</PageTitle>
+@if (string.IsNullOrEmpty(counter) || _upcomingBoss is null)
 {
     <MudPaper Class="d-flex justify-center flex-grow-1 gap-4 mt-16" Outlined="true" Elevation="1">
         <MudStack class="ma-4">
@@ -11,10 +13,17 @@
 }
 else
 {
-    <MudPaper Class="d-flex justify-center flex-grow-1 gap-4 mt-16" Outlined="true"  Elevation="1">
+    <MudPaper Class="d-flex justify-center flex-grow-1 gap-4 mt-16" Outlined="true" Elevation="1">
         <MudStack class="ma-4">
             <MudText Typo="Typo.h3" GutterBottom="true">@message</MudText>
             <MudText Typo="Typo.h3" GutterBottom="true">@counter</MudText>
+        </MudStack>
+    </MudPaper>
+
+    <MudPaper Class="d-flex justify-center flex-grow-1 gap-4 mt-16" Outlined="true" Elevation="1">
+        <MudStack class="ma-4">
+            <MudText Typo="Typo.h3" GutterBottom="true">@bossMessage</MudText>
+            <MudText Typo="Typo.h3" GutterBottom="true">@bossCounter</MudText>
         </MudStack>
     </MudPaper>
 }
@@ -24,21 +33,32 @@ else
     private static Timer? _timer;
     private static DateTime _baseTime;
     private string counter = string.Empty;
+    private string bossCounter = string.Empty;
     private string message = string.Empty;
+     private string bossMessage = string.Empty;
+    private D4Boss? _upcomingBoss;
     private bool isOngoing = false;
     private TimeSpan _remainingTime;
-    protected override void OnInitialized()
+    private TimeSpan _bossRemainingTime;
+    protected override async Task OnInitializedAsync()
     {
+
         _baseTime = new DateTime(2023, 6, 13, 7, 0, 0, DateTimeKind.Utc);
         _remainingTime = GetRemainingTime();
         _timer = new(1000);
         _timer.Elapsed += TimerElapsed;
         _timer.Start();
+        _upcomingBoss = await D4HttpClient.GetUpcomingBoss();
+        if (_upcomingBoss is not null)
+        {
+            _bossRemainingTime = GetUpcomingBossRemainingTime(_upcomingBoss.Time);
+        }
     }
 
     private void TimerElapsed(object? sender, ElapsedEventArgs e)
     {
         _remainingTime = _remainingTime.Subtract(TimeSpan.FromSeconds(1));
+        _bossRemainingTime = _bossRemainingTime.Subtract(TimeSpan.FromSeconds(1));
         if (isOngoing)
         {
             counter = $"{_remainingTime.Minutes} minutes {_remainingTime.Seconds} seconds remaining";
@@ -59,11 +79,24 @@ else
         {
             _remainingTime = GetRemainingTime();
         }
-        
+
+        if (_bossRemainingTime.Hours > 0)
+        {
+            bossCounter = $"{_bossRemainingTime.Hours} hour {_bossRemainingTime.Minutes} minutes {_bossRemainingTime.Seconds} seconds";
+        }
+        else
+        {
+            bossCounter = $"{_bossRemainingTime.Minutes} minutes {_bossRemainingTime.Seconds} seconds";
+        }
+
         message = isOngoing ? "Helltide is now ongoing:" : "Next Helltide will start in:";
+        bossMessage = $"{_upcomingBoss!.Name}  will show up in:";
         StateHasChanged();
     }
 
+
+    private TimeSpan GetUpcomingBossRemainingTime(int time)
+    => TimeSpan.FromMinutes(time);
 
     private TimeSpan GetRemainingTime()
     {
@@ -83,10 +116,10 @@ else
         {
             isOngoing = false;
             int intervalMinutesBy75 = 75 - timeElapsedWithinInterval.Minutes;
-            return TimeSpan.FromMinutes(intervalMinutesBy75 > 60 ?  intervalMinutesBy75 % 75 : intervalMinutesBy75 % 60);
+            return TimeSpan.FromMinutes(intervalMinutesBy75 > 60 ? intervalMinutesBy75 % 75 : intervalMinutesBy75 % 60);
         }
-
     }
+
 
     public void Dispose()
     {
