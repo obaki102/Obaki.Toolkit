@@ -4,7 +4,7 @@ using Timer = System.Timers.Timer;
 
 namespace Obaki.Toolkit.Client.Pages
 {
-    public partial class D4Timer
+    public partial class D4Timer : IDisposable
     {
         private static Timer? _timer;
         private static DateTime _baseTime;
@@ -89,7 +89,8 @@ namespace Obaki.Toolkit.Client.Pages
             {
                 isOngoing = false;
                 int intervalMinutesBy75 = 75 - timeElapsedWithinInterval.Minutes;
-                return TimeSpan.FromMinutes(intervalMinutesBy75);
+                Console.WriteLine(intervalMinutesBy75);
+                return TimeSpan.FromMinutes(intervalMinutesBy75 > 60  ? intervalMinutesBy75 % 75 : intervalMinutesBy75);
             }
         }
 
