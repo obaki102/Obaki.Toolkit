@@ -34,39 +34,31 @@ namespace Obaki.Toolkit.Client.Pages
         {
             _remainingTime = _remainingTime.Subtract(TimeSpan.FromSeconds(1));
             _bossRemainingTime = _bossRemainingTime.Subtract(TimeSpan.FromSeconds(1));
-            if (isOngoing)
-            {
-                counter = $"{_remainingTime.Minutes} minutes {_remainingTime.Seconds} seconds remaining";
-            }
-            else
-            {
-                if (_remainingTime.Hours > 0)
-                {
-                    counter = $"{_remainingTime.Hours} hour {_remainingTime.Minutes} minutes {_remainingTime.Seconds} seconds";
-                }
-                else
-                {
-                    counter = $"{_remainingTime.Minutes} minutes {_remainingTime.Seconds} seconds";
-                }
-            }
 
-            if (_bossRemainingTime.Hours > 0)
-            {
-                bossCounter = $"{_bossRemainingTime.Hours} hours {_bossRemainingTime.Minutes} minutes {_bossRemainingTime.Seconds} seconds";
-            }
-            else
-            {
-                bossCounter = $"{_bossRemainingTime.Minutes} minutes {_bossRemainingTime.Seconds} seconds";
-            }
-
+            counter = FormatTime(_remainingTime);
+            bossCounter = FormatTime(_bossRemainingTime);
             message = isOngoing ? "Helltide is now ongoing:" : "Next Helltide will start in:";
-            bossMessage = $"{_upcomingBoss!.Name}  will show up in:";
+            bossMessage = $"{_upcomingBoss!.Name} will show up in:";
+
             if (_remainingTime.TotalSeconds <= 0)
             {
                 _remainingTime = GetRemainingTime();
             }
 
             StateHasChanged();
+        }
+
+        private static string FormatTime(TimeSpan time)
+        {
+            if (time.Hours > 0)
+            {
+                return time.Hours  == 1 ? $"{time.Hours} hour {time.Minutes} minutes {time.Seconds} seconds"
+                    : $"{time.Hours} hours {time.Minutes} minutes {time.Seconds} seconds";
+            }
+            else
+            {
+                return $"{time.Minutes} minutes {time.Seconds} seconds";
+            }
         }
 
         private static TimeSpan GetUpcomingBossRemainingTime(int time) => TimeSpan.FromMinutes(time);
@@ -89,8 +81,7 @@ namespace Obaki.Toolkit.Client.Pages
             {
                 isOngoing = false;
                 int intervalMinutesBy75 = 75 - timeElapsedWithinInterval.Minutes;
-                Console.WriteLine(intervalMinutesBy75);
-                return TimeSpan.FromMinutes(intervalMinutesBy75 > 60  ? intervalMinutesBy75 % 75 : intervalMinutesBy75);
+                return TimeSpan.FromMinutes(intervalMinutesBy75 > 60 ? intervalMinutesBy75 % 75 : intervalMinutesBy75);
             }
         }
 
