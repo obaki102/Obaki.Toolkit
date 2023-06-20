@@ -12,10 +12,13 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddHttpClient<ID4HttpClient, D4HttpClient>();
 builder.Services.AddTextEditorServiceAsSingleton();
 builder.Services.AddMudServices();
-// builder.Services.AddCors(options =>
-// {
-//     options.AddPolicy("Open", builder => builder.AllowAnyOrigin().AllowAnyHeader());
-// }); 
+if (builder.HostEnvironment.Environment == "Development")
+{
+    builder.Logging.SetMinimumLevel(LogLevel.Debug);
+}
+else
+{
+    builder.Logging.SetMinimumLevel(LogLevel.None);
+}
 var app = builder.Build();
-// app.UseCors("Open");
 await app.RunAsync();
