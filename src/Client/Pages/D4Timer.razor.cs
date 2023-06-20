@@ -52,7 +52,7 @@ namespace Obaki.Toolkit.Client.Pages
 
             if (_bossRemainingTime.Hours > 0)
             {
-                bossCounter = $"{_bossRemainingTime.Hours} hour {_bossRemainingTime.Minutes} minutes {_bossRemainingTime.Seconds} seconds";
+                bossCounter = $"{_bossRemainingTime.Hours} hours {_bossRemainingTime.Minutes} minutes {_bossRemainingTime.Seconds} seconds";
             }
             else
             {
