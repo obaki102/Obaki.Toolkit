@@ -5,11 +5,11 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /app
 
 # Copy the .csproj and restore dependencies
-COPY /src/Api/Obaki.Toolkit.Api.csproj ./
+COPY ./src/Api/Obaki.Toolkit.Api.csproj ./
 RUN dotnet restore
 
 # Copy the remaining source code
-COPY . .
+COPY ./src/Api/ ./
 
 # Build the application
 RUN dotnet build -c Release --no-restore
