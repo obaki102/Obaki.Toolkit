@@ -38,7 +38,7 @@ namespace Obaki.Toolkit.Client.Pages
             counter = FormatTime(_remainingTime);
             bossCounter = FormatTime(_bossRemainingTime);
             message = isOngoing ? "Helltide is now ongoing:" : "Next Helltide will start in:";
-            bossMessage = $"World boss({_upcomingBoss!.Name}) will show up in:";
+            bossMessage = $"{_upcomingBoss!.Name} will show up in:";
 
             if (_remainingTime.TotalSeconds <= 0)
             {
@@ -52,12 +52,12 @@ namespace Obaki.Toolkit.Client.Pages
         {
             if (time.Hours > 0)
             {
-                return time.Hours  == 1 ? $"{time.Hours} hour {time.Minutes} minutes {time.Seconds} seconds"
-                    : $"{time.Hours} hours {time.Minutes} minutes {time.Seconds} seconds";
+                return time.Hours  == 1 ? $"{time.Hours} hour {time.Minutes} minutes"
+                    : $"{time.Hours} hours {time.Minutes} minutes";
             }
             else
             {
-                return $"{time.Minutes} minutes {time.Seconds} seconds";
+                return $"{time.Minutes} minutes";
             }
         }
 
