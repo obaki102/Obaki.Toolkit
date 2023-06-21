@@ -38,7 +38,7 @@ namespace Obaki.Toolkit.Client.Pages
             counter = FormatTime(_remainingTime);
             bossCounter = FormatTime(_bossRemainingTime);
             message = isOngoing ? "Helltide is now ongoing:" : "Next Helltide will start in:";
-            bossMessage = $"Next boss will show up in:";
+            bossMessage = $"World boss will show up in:";
 
             if (_remainingTime.TotalSeconds <= 0)
             {
