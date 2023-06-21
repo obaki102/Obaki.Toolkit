@@ -1,6 +1,8 @@
 name: 'Deploy to GitHub Pages'
-on: push
-
+on: 
+  push:
+      paths:
+        - 'src/Client/**'
 jobs:
   build:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
