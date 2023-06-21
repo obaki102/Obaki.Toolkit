@@ -52,12 +52,12 @@ namespace Obaki.Toolkit.Client.Pages
         {
             if (time.Hours > 0)
             {
-                return time.Hours  == 1 ? $"{time.Hours} hour {time.Minutes} minutes"
-                    : $"{time.Hours} hours {time.Minutes} minutes";
+                return time.Hours  == 1 ? $"{time.Hours} hour {time.Minutes} minutes {time.Seconds} seconds"
+                    : $"{time.Hours} hours {time.Minutes} minutes {time.Seconds} seconds";
             }
             else
             {
-                return $"{time.Minutes} minutes";
+                return $"{time.Minutes} minutes {time.Seconds} seconds";
             }
         }
 
