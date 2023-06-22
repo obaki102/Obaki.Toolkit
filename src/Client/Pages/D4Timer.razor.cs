@@ -81,7 +81,7 @@ namespace Obaki.Toolkit.Client.Pages
             {
                 isOngoing = false;
                 int intervalMinutesBy75 = 75 - timeElapsedWithinInterval.Minutes;
-                return TimeSpan.FromMinutes(intervalMinutesBy75 > 60 ? intervalMinutesBy75 % 75 : intervalMinutesBy75);
+                return TimeSpan.FromMinutes(intervalMinutesBy75 > 60 && intervalMinutesBy75 < 75 ? intervalMinutesBy75 % 75 : intervalMinutesBy75);
             }
         }
 
