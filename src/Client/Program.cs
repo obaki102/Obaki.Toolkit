@@ -9,7 +9,7 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
-builder.Services.AddHttpClient<ID4HttpClient, D4HttpClient>();
+builder.Services.AddHttpClient<ID4HttpClient, D4HttpClientWithProxy>();
 builder.Services.AddTextEditorServiceAsSingleton();
 builder.Services.AddMudServices();
 if (builder.HostEnvironment.Environment == "Development")

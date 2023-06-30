@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Obaki.Toolkit.Client", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Obaki.Toolkit.Application", "src\Application\Obaki.Toolkit.Application.csproj", "{A9C12D98-2365-446B-8825-98C48B385248}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Obaki.Toolkit.Api", "src\Api\Obaki.Toolkit.Api.csproj", "{27403BCA-A5A5-45E0-B97A-CF761050498A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{A9C12D98-2365-446B-8825-98C48B385248}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9C12D98-2365-446B-8825-98C48B385248}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9C12D98-2365-446B-8825-98C48B385248}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27403BCA-A5A5-45E0-B97A-CF761050498A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27403BCA-A5A5-45E0-B97A-CF761050498A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27403BCA-A5A5-45E0-B97A-CF761050498A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27403BCA-A5A5-45E0-B97A-CF761050498A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,5 +45,6 @@ Global
 		{07F370A1-94A0-4CA0-BE50-CC2B09857602} = {3709D519-E065-4C21-8EF3-B080F14A639C}
 		{B908278B-13EE-4A9B-BBB6-B1090B764BBB} = {FCEC0DD4-0493-4F9D-920C-9665B92838A8}
 		{A9C12D98-2365-446B-8825-98C48B385248} = {FCEC0DD4-0493-4F9D-920C-9665B92838A8}
+		{27403BCA-A5A5-45E0-B97A-CF761050498A} = {FCEC0DD4-0493-4F9D-920C-9665B92838A8}
 	EndGlobalSection
 EndGlobal

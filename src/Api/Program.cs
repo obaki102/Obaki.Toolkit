@@ -1,6 +1,10 @@
+
+using Obaki.Toolkit.Application.Features.D4Timer;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddHttpClient<ID4HttpClient, D4HttpClient>();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHealthChecks();
 var app = builder.Build();
@@ -21,6 +25,6 @@ else
 app.UseRouting();
 
 app.MapHealthChecks("/health");
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", (ID4HttpClient client) => client.GetUpcomingBoss());
 
 app.Run();
