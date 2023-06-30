@@ -7,7 +7,7 @@ WORKDIR /app
 # Copy the .csproj and restore dependencies
 COPY ./src/Application/Obaki.Toolkit.Application.csproj Api/
 COPY ./src/Api/Obaki.Toolkit.Api.csproj Application/
-RUN dotnet restore Obaki.Toolkit.Api.csproj
+RUN dotnet restore Api/Obaki.Toolkit.Api.csproj
 
 # Copy the remaining source code
 COPY ./src/Api/ Api/
