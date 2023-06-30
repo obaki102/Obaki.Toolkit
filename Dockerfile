@@ -14,10 +14,10 @@ COPY ./src/Api/ ./
 COPY ./src/Application/ ./
 
 # Build the application
-RUN dotnet build -c Release --no-restore
+RUN dotnet build Obaki.Toolkit.Api.csproj -c Release --no-restore
 
 # Publish the application
-RUN dotnet publish -c Release --no-build --no-restore -o /app/publish
+RUN dotnet publish Obaki.Toolkit.Api.csproj -c Release --no-build --no-restore -o /app/publish
 
 # Use a lightweight runtime image as the base image
 FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS runtime
