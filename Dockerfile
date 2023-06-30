@@ -1,6 +1,6 @@
 # Build stage
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
-WORKDIR /src
+WORKDIR /root
 
 # Copy and restore the reference project
 COPY ./src/Application/Obaki.Toolkit.Application.csproj reference/
@@ -18,5 +18,6 @@ RUN dotnet publish ./src/Api/Obaki.Toolkit.Api.csproj -c Release -o /app/publish
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+EXPOSE 80
 ENTRYPOINT ["dotnet", "Obaki.Toolkit.Api.dll"]
 
