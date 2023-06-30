@@ -6,7 +6,7 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ./src/Application/Obaki.Toolkit.Application.csproj Application/
 COPY ./src/Api/Obaki.Toolkit.Api.csproj Api/
-RUN dotnet restore Obaki.Toolkit.Api.csproj"
+RUN dotnet restore Obaki.Toolkit.Api.csproj
 
 COPY . .
 WORKDIR "/src/Api"
