@@ -8,7 +8,7 @@ RUN dotnet restore reference/Obaki.Toolkit.Application.csproj
 
 # Copy and build the main project
 COPY . .
-RUN dotnet build ./src/Api/Obaki.Toolkit.Api.csproj -c Release --no-restore
+RUN dotnet build ./src/Api/Obaki.Toolkit.Api.csproj -c Release
 
 # Publish the application
 RUN dotnet publish ./src/Api/Obaki.Toolkit.Api.csproj -c Release --no-build --no-restore -o /app/publish
