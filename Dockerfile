@@ -3,8 +3,8 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /app
 
 # Copy and restore the reference project
-COPY ./src/Application/Obaki.Toolkit.Application.csproj ./
-RUN dotnet restore ./src/Application/Obaki.Toolkit.Application.csproj
+COPY ./src/Application/Obaki.Toolkit.Application.csproj reference/
+RUN dotnet restore reference/Obaki.Toolkit.Application.csproj
 
 # Copy and build the main project
 COPY . .
