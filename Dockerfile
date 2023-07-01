@@ -1,5 +1,6 @@
 # Build stage
 FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+EXPOSE 80
 WORKDIR /root
 
 # Copy and restore the reference project
