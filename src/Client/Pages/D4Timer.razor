@@ -16,13 +16,15 @@ else
         <MudStack class="ma-4">
             <MudText Typo="Typo.h3" GutterBottom="true">@message</MudText>
             <MudText Typo="Typo.h3" GutterBottom="true">@counter</MudText>
+            <MudProgressLinear Color="Color.Primary" Value="@timerValue"  Min="-75" Max="0" />
         </MudStack>
     </MudPaper>
 
     <MudPaper Class="d-flex justify-center flex-grow-1 gap-4 mt-16" Outlined="true" Elevation="1">
         <MudStack class="ma-4">
-            <MudText Typo="Typo.h3" GutterBottom="true">@bossMessage</MudText>
+            <MudText Typo="Typo.h3" GutterBottom="true" >@bossMessage</MudText>
             <MudText Typo="Typo.h3" GutterBottom="true">@bossCounter</MudText>
+             <MudProgressLinear Value="@timerBossValue" Min="-360" Max="0" />
         </MudStack>
     </MudPaper>
 }

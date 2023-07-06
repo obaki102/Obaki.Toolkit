@@ -16,6 +16,8 @@ namespace Obaki.Toolkit.Client.Pages
         private bool isOngoing = false;
         private TimeSpan _remainingTime;
         private TimeSpan _bossRemainingTime;
+        private int timerValue = 0;
+        private int timerBossValue = 0;
         protected override async Task OnInitializedAsync()
         {
             _upcomingBoss = await D4HttpClient.GetUpcomingBoss();
@@ -33,7 +35,10 @@ namespace Obaki.Toolkit.Client.Pages
         private void TimerElapsed(object? sender, ElapsedEventArgs e)
         {
             _remainingTime = _remainingTime.Subtract(TimeSpan.FromSeconds(1));
+            timerValue = (int)Math.Abs(_remainingTime.TotalMinutes) * -1;
+           
             _bossRemainingTime = _bossRemainingTime.Subtract(TimeSpan.FromSeconds(1));
+            timerBossValue = (int)Math.Abs(_bossRemainingTime.TotalMinutes) * -1;
 
             counter = FormatTime(_remainingTime);
             bossCounter = FormatTime(_bossRemainingTime);
@@ -52,7 +57,7 @@ namespace Obaki.Toolkit.Client.Pages
         {
             if (time.Hours > 0)
             {
-                return time.Hours  == 1 ? $"{time.Hours} hour {time.Minutes} minutes {time.Seconds} seconds"
+                return time.Hours == 1 ? $"{time.Hours} hour {time.Minutes} minutes {time.Seconds} seconds"
                     : $"{time.Hours} hours {time.Minutes} minutes {time.Seconds} seconds";
             }
             else
