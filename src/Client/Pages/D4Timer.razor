@@ -16,7 +16,7 @@ else
         <MudStack class="ma-4">
             <MudText Typo="Typo.h3" GutterBottom="true">@message</MudText>
             <MudText Typo="Typo.h3" GutterBottom="true">@counter</MudText>
-            <MudProgressLinear Color="Color.Primary" Value="@timerValue"  Min="-75" Max="0" />
+            <MudProgressLinear Color="Color.Primary" Value="@timerValue"  Min="@timerMinValue" Max="@timerMaxValue" />
         </MudStack>
     </MudPaper>
 

@@ -17,6 +17,8 @@ namespace Obaki.Toolkit.Client.Pages
         private TimeSpan _remainingTime;
         private TimeSpan _bossRemainingTime;
         private int timerValue = 0;
+        private int timerMinValue = -75;
+        private int timerMaxValue = 0;
         private int timerBossValue = 0;
         protected override async Task OnInitializedAsync()
         {
@@ -30,13 +32,19 @@ namespace Obaki.Toolkit.Client.Pages
                 _timer.Elapsed += TimerElapsed;
                 _timer.Start();
             }
+            
+            if (isOngoing)
+            {
+                timerMinValue = -60;
+                timerMaxValue = 0;
+            }
         }
 
         private void TimerElapsed(object? sender, ElapsedEventArgs e)
         {
             _remainingTime = _remainingTime.Subtract(TimeSpan.FromSeconds(1));
             timerValue = (int)Math.Abs(_remainingTime.TotalMinutes) * -1;
-           
+
             _bossRemainingTime = _bossRemainingTime.Subtract(TimeSpan.FromSeconds(1));
             timerBossValue = (int)Math.Abs(_bossRemainingTime.TotalMinutes) * -1;
 
