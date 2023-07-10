@@ -24,7 +24,7 @@ else
         <MudStack class="ma-4">
             <MudText Typo="Typo.h3" GutterBottom="true" >@bossMessage</MudText>
             <MudText Typo="Typo.h3" GutterBottom="true">@bossCounter</MudText>
-             <MudProgressLinear Value="@timerBossValue" Min="-360" Max="0" />
+             <MudProgressLinear Value="@timerBossValue" Min="@_timerMinBossValue" Max="0" />
         </MudStack>
     </MudPaper>
 }

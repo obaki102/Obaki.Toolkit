@@ -16,16 +16,19 @@ namespace Obaki.Toolkit.Client.Pages
         private bool isOngoing = false;
         private TimeSpan _remainingTime;
         private TimeSpan _bossRemainingTime;
+        private int _timerMinBossValue = 0;
         private int timerValue = 0;
         private int timerMinValue = -75;
         private int timerMaxValue = 0;
         private int timerBossValue = 0;
+      
         protected override async Task OnInitializedAsync()
         {
             _upcomingBoss = await D4HttpClient.GetUpcomingBoss();
             if (_upcomingBoss is not null)
             {
                 _bossRemainingTime = GetUpcomingBossRemainingTime(_upcomingBoss.Time);
+                _timerMinBossValue = _bossRemainingTime.TotalMinutes > 360 ? (int)Math.Abs(_bossRemainingTime.TotalMinutes) * -1 : -360 ;
                 _baseTime = new DateTime(2023, 6, 13, 7, 0, 0, DateTimeKind.Utc);
                 _remainingTime = GetRemainingTime();
                 _timer = new(1000);
