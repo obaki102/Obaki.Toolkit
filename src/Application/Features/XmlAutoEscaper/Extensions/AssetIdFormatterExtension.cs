@@ -3,7 +3,17 @@ namespace Obaki.Toolkit.Application.Features.XmlAutoEscaper.Services.TextEditor.
 public static partial class AssetIdFormatterExtension
 {
     public static string TrimScrippsAssetId(this string input)
-       => ScrippsRegexPattern().Replace(input, match => match.Value.Substring(11, 8));
+    {
+       return  ScrippsRegexPattern().Replace(input, match =>
+        {
+            string trimmedValue = match.Value.Substring(11, 8);
+            if (trimmedValue.StartsWith("0"))
+            {
+                trimmedValue = trimmedValue[1..];
+            }
+            return trimmedValue;
+        });
+    }
 
     public static string TrimDiscoveryAssetId(this string input)
         => DiscoveryRegexPattern().Replace(input, match => match.Value.Substring(5, 14));
